@@ -4,12 +4,17 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import dperry.game.grid.domain.Grid;
+import dperry.game.grid.domain.config.GameConfig;
+import dperry.game.grid.domain.config.GameDifficulty;
+import dperry.game.grid.domain.config.GridSize;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Handles requests for the application home page.
@@ -35,5 +40,17 @@ public class HomeController {
 		
 		return "home";
 	}
+
+    @RequestMapping("/testgrid")
+    public ModelAndView testViewGrid(ModelAndView model) {
+
+        GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.NORMAL);
+
+        Grid grid = new Grid(config);
+        model.addObject("grid", grid);
+
+        model.setViewName("grid");
+        return model;
+    }
 	
 }

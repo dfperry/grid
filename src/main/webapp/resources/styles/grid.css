@@ -1,0 +1,182 @@
+#grid {
+    background-color: #222222;
+    border: 2px solid #555555;
+    padding: 10px;
+    padding-bottom: 30px;
+    display: inline-block;
+    margin: 10px auto;
+}
+
+#grid > ul  {
+    list-style: none;
+    display: block;
+    margin-bottom: -15px;
+    height: 60px;
+}
+
+#grid > ul > li {
+    display: inline-block;
+    float: left;
+    width:  52px;
+    height: 60px;
+    margin-right: 2px;
+    margin-bottom: -14px;
+}
+
+#grid > ul.odd {
+    padding-left: 27px;
+}
+
+#grid > ul > li > a > b {
+    display: block;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    border-bottom: 15px solid #446688;
+    border-left: 26px dotted transparent;
+    border-right: 26px dotted transparent;
+}
+
+#grid > ul > li > a > span {
+    display: block;
+    height: 30px;
+    text-align: center;
+    background-color: #446688;
+}
+
+#grid > ul > li > a > em {
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-top: 15px solid #446688;
+    border-left: 26px dotted transparent;
+    border-right: 26px dotted transparent;
+}
+
+#grid > ul > li > a:hover > b {
+    border-bottom-color: #6688aa;
+}
+
+#grid > ul > li > a:hover > span {
+    background-color: #6688aa;
+}
+
+#grid > ul > li > a:hover > em {
+    border-top-color: #6688aa;
+}
+
+/* SAFE */
+#grid > ul > li.SAFE > a > b {
+    border-bottom-color: #226644;
+}
+#grid > ul > li.SAFE > a > span {
+    background-color: #226644;
+}
+#grid > ul > li.SAFE > a > em {
+    border-top-color: #226644;
+}
+#grid > ul > li.SAFE > a:hover > b {
+    border-bottom-color: #448866;
+}
+#grid > ul > li.SAFE > a:hover > span {
+    background-color: #448866;
+}
+#grid > ul > li.SAFE > a:hover > em {
+    border-top-color: #448866;
+}
+
+/* ASTEROID_FIELD*/
+#grid > ul > li.ASTEROID_FIELD > a > span {
+    background-color: #888866 !important;
+}
+#grid > ul > li.ASTEROID_FIELD > a:hover > span {
+    background-color: #aaaa88 !important;
+}
+
+/* GRAVITY_WELL*/
+#grid > ul > li.GRAVITY_WELL> a > span {
+    background-color: #224466 !important;
+}
+#grid > ul > li.GRAVITY_WELL> a:hover > span {
+    background-color: #446688 !important;
+}
+
+/* EMPTY_SPACE */
+#grid > ul > li.EMPTY_SPACE > a > span {
+    background-color: #333333 !important;
+}
+#grid > ul > li.EMPTY_SPACE > a:hover > span {
+    background-color: #444444 !important;
+}
+
+/* STAR_SYSTEM */
+#grid > ul > li.STAR_SYSTEM > a > span {
+    background-color: #448866 !important;
+}
+#grid > ul > li.STAR_SYSTEM > a:hover > span {
+    background-color: #66aa88 !important;
+}
+
+/* HAZARDOUS */
+#grid > ul > li.HAZARDOUS > a > b {
+    border-bottom-color: #664444;
+}
+#grid > ul > li.HAZARDOUS > a > span {
+    background-color: #664444;
+}
+#grid > ul > li.HAZARDOUS > a > em {
+    border-top-color: #664444;
+}
+#grid > ul > li.HAZARDOUS > a:hover > b {
+    border-bottom-color: #886666;
+}
+#grid > ul > li.HAZARDOUS > a:hover > span {
+    background-color: #886666;
+}
+#grid > ul > li.HAZARDOUS > a:hover > em {
+    border-top-color: #886666;
+}
+
+
+/* selected */
+#grid > ul > li.selected> a > b {
+    border-bottom-color: #664444 !important;
+}
+#grid > ul > li.selected> a > span {
+    background-color: #664444 !important;
+}
+#grid > ul > li.selected> a > em {
+    border-top-color: #664444 !important;
+}
+/* in range */
+#grid > ul > li.range> a > b {
+    border-bottom-color: #886666 !important;
+}
+#grid > ul > li.range> a > span {
+    background-color: #886666 !important;
+}
+#grid > ul > li.range> a > em {
+    border-top-color: #886666 !important;
+}
+
+/* source */
+#grid > ul > li.source> a > b {
+    border-bottom-color: #666644 !important;
+}
+#grid > ul > li.source> a > span {
+    background-color: #666644 !important;
+}
+#grid > ul > li.source> a > em {
+    border-top-color: #666644 !important;
+}
+/* dest */
+#grid > ul > li.dest> a > b {
+    border-bottom-color: #888866 !important;
+}
+#grid > ul > li.dest> a > span {
+    background-color: #888866 !important;
+}
+#grid > ul > li.dest> a > em {
+    border-top-color: #888866 !important;
+}
