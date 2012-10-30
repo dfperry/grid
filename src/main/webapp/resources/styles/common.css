@@ -6,3 +6,8 @@
 div {
     position: relative;
 }
+
+body {
+    font-family: Arial, "sans-serif";
+    font-size: 0.9em;
+}

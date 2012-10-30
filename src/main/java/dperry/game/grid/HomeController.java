@@ -41,10 +41,34 @@ public class HomeController {
 		return "home";
 	}
 
-    @RequestMapping("/testgrid")
-    public ModelAndView testViewGrid(ModelAndView model) {
+    @RequestMapping("/testeasygrid")
+    public ModelAndView testViewEasyGrid(ModelAndView model) {
+
+        GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.EASY);
+
+        Grid grid = new Grid(config);
+        model.addObject("grid", grid);
+
+        model.setViewName("grid");
+        return model;
+    }
+
+    @RequestMapping("/testnormalgrid")
+    public ModelAndView testViewNormalGrid(ModelAndView model) {
 
         GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.NORMAL);
+
+        Grid grid = new Grid(config);
+        model.addObject("grid", grid);
+
+        model.setViewName("grid");
+        return model;
+    }
+
+    @RequestMapping("/testhardgrid")
+    public ModelAndView testViewHardGrid(ModelAndView model) {
+
+        GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.HARD);
 
         Grid grid = new Grid(config);
         model.addObject("grid", grid);

@@ -7,6 +7,20 @@
     margin: 10px auto;
 }
 
+#overlay {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: #224466;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    z-index: 100;
+}
+
 #grid > ul  {
     list-style: none;
     display: block;
@@ -21,6 +35,67 @@
     height: 60px;
     margin-right: 2px;
     margin-bottom: -14px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#grid div.tile.popup {
+    display: inline-block;
+    width: 240px;
+    height: 208px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    color: #ffffff;
+    z-index: 110;
+}
+
+#grid div.tile.popup > b {
+    display: inline-block;
+    float: left;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    border-right: 55px solid #224466;
+    border-top: 104px dotted transparent;
+    border-bottom: 104px dotted transparent;
+}
+
+#grid div.tile.popup > em {
+    display: inline-block;
+    float: left;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    border-left: 55px solid #224466;
+    border-top: 104px dotted transparent;
+    border-bottom: 104px dotted transparent;
+}
+
+#grid div.tile.popup > span {
+    display: inline-block;
+    float: left;
+    width: 130px;
+    height: 208px;
+    overflow: hidden;
+    background-color: #224466;
+}
+
+#grid div.tile.popup > span .info {
+    position: absolute;
+    text-align: center;
+    top: 50%;    
+}
+
+#grid div.tile.popup a.close {
+    float: right;
+    color: #ffffff;
+    text-decoration: none;
 }
 
 #grid > ul.odd {
