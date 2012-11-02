@@ -16,9 +16,54 @@
     height: 100%;
     width: 100%;
     background-color: #224466;
-    opacity: 0.5;
-    filter: alpha(opacity=50);
+    opacity: 0.75;
+    filter: alpha(opacity=75);
     z-index: 100;
+}
+
+#grid #overlay div.tile.popup {
+    display: inline-block;
+    width: 488px;
+    height: 422px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    color: #ffffff;
+    z-index: 110;
+}
+
+#grid #overlay div.tile.popup > b {
+    display: inline-block;
+    float: left;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    border-right: 113px solid #6688aa;
+    border-top: 211px dotted transparent;
+    border-bottom: 211px dotted transparent;
+}
+
+#grid #overlay div.tile.popup > em {
+    display: inline-block;
+    float: left;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    border-left: 113px solid #6688aa;
+    border-top: 211px dotted transparent;
+    border-bottom: 211px dotted transparent;
+}
+
+#grid #overlay div.tile.popup > span {
+    display: inline-block;
+    float: left;
+    width: 262px;
+    height: 422px;
+    overflow: hidden;
+    background-color: #6688aa;
 }
 
 #grid > ul  {
@@ -43,8 +88,8 @@
 
 #grid div.tile.popup {
     display: inline-block;
-    width: 240px;
-    height: 208px;
+    width: 480px;
+    height: 416px;
     position: absolute;
     top: 0px;
     bottom: 0px;
@@ -61,9 +106,9 @@
     width: 0px;
     height: 0px;
     overflow: hidden;
-    border-right: 55px solid #224466;
-    border-top: 104px dotted transparent;
-    border-bottom: 104px dotted transparent;
+    border-right: 110px solid #224466;
+    border-top: 208px dotted transparent;
+    border-bottom: 208px dotted transparent;
 }
 
 #grid div.tile.popup > em {
@@ -72,16 +117,16 @@
     width: 0px;
     height: 0px;
     overflow: hidden;
-    border-left: 55px solid #224466;
-    border-top: 104px dotted transparent;
-    border-bottom: 104px dotted transparent;
+    border-left: 110px solid #224466;
+    border-top: 208px dotted transparent;
+    border-bottom: 208px dotted transparent;
 }
 
 #grid div.tile.popup > span {
     display: inline-block;
     float: left;
-    width: 130px;
-    height: 208px;
+    width: 260px;
+    height: 416px;
     overflow: hidden;
     background-color: #224466;
 }
@@ -143,13 +188,19 @@
 
 /* SAFE */
 #grid > ul > li.SAFE > a > b {
-    border-bottom-color: #226644;
+    border-bottom-color: #226644 !important;
 }
-#grid > ul > li.SAFE > a > span {
-    background-color: #226644;
+#grid div.tile.popup.SAFE > b {
+    border-right-color: #226644 !important;
+}
+#grid > ul > li.SAFE > a > span, #grid div.tile.popup.SAFE > span {
+    background-color: #226644 !important;
 }
 #grid > ul > li.SAFE > a > em {
-    border-top-color: #226644;
+    border-top-color: #226644 !important;
+}
+#grid div.tile.popup.SAFE > em {
+    border-left-color: #226644 !important;
 }
 #grid > ul > li.SAFE > a:hover > b {
     border-bottom-color: #448866;
@@ -161,47 +212,22 @@
     border-top-color: #448866;
 }
 
-/* ASTEROID_FIELD*/
-#grid > ul > li.ASTEROID_FIELD > a > span {
-    background-color: #888866 !important;
-}
-#grid > ul > li.ASTEROID_FIELD > a:hover > span {
-    background-color: #aaaa88 !important;
-}
-
-/* GRAVITY_WELL*/
-#grid > ul > li.GRAVITY_WELL> a > span {
-    background-color: #224466 !important;
-}
-#grid > ul > li.GRAVITY_WELL> a:hover > span {
-    background-color: #446688 !important;
-}
-
-/* EMPTY_SPACE */
-#grid > ul > li.EMPTY_SPACE > a > span {
-    background-color: #333333 !important;
-}
-#grid > ul > li.EMPTY_SPACE > a:hover > span {
-    background-color: #444444 !important;
-}
-
-/* STAR_SYSTEM */
-#grid > ul > li.STAR_SYSTEM > a > span {
-    background-color: #448866 !important;
-}
-#grid > ul > li.STAR_SYSTEM > a:hover > span {
-    background-color: #66aa88 !important;
-}
-
 /* HAZARDOUS */
 #grid > ul > li.HAZARDOUS > a > b {
-    border-bottom-color: #664444;
+    border-bottom-color: #664444 !important;
 }
-#grid > ul > li.HAZARDOUS > a > span {
-    background-color: #664444;
+#grid div.tile.popup.HAZARDOUS > b {
+    border-right-color: #664444 !important;
+}
+
+#grid > ul > li.HAZARDOUS > a > span, #grid div.tile.popup.HAZARDOUS > span {
+    background-color: #664444 !important;
 }
 #grid > ul > li.HAZARDOUS > a > em {
-    border-top-color: #664444;
+    border-top-color: #664444 !important;
+}
+#grid div.tile.popup.HAZARDOUS > em {
+    border-left-color: #664444 !important;
 }
 #grid > ul > li.HAZARDOUS > a:hover > b {
     border-bottom-color: #886666;
@@ -212,6 +238,76 @@
 #grid > ul > li.HAZARDOUS > a:hover > em {
     border-top-color: #886666;
 }
+
+/* ASTEROID_FIELD*/
+#grid > ul > li.ASTEROID_FIELD > a > span {
+    background-color: #888866 !important;
+}
+#grid > ul > li.ASTEROID_FIELD > .popup > b {
+    border-right-color: #888866 !important;
+}
+#grid > ul > li.ASTEROID_FIELD > .popup > em {
+    border-left-color: #888866 !important;
+}
+#grid > ul > li.ASTEROID_FIELD > .popup > span {
+    background-color: #888866 !important;
+}
+#grid > ul > li.ASTEROID_FIELD > a:hover > span {
+    background-color: #aaaa88 !important;
+}
+
+/* GRAVITY_WELL*/
+#grid > ul > li.GRAVITY_WELL> a > span {
+    background-color: #224466 !important;
+}
+#grid > ul > li.GRAVITY_WELL> .popup > b {
+    border-right-color: #224466 !important;
+}
+#grid > ul > li.GRAVITY_WELL> .popup > em {
+    border-left-color: #224466 !important;
+}
+#grid > ul > li.GRAVITY_WELL> .popup > span {
+    background-color: #224466 !important;
+}
+#grid > ul > li.GRAVITY_WELL> a:hover > span {
+    background-color: #446688 !important;
+}
+
+/* EMPTY_SPACE */
+#grid > ul > li.EMPTY_SPACE > a > span {
+    background-color: #333333 !important;
+}
+#grid > ul > li.EMPTY_SPACE > .popup > b {
+    border-right-color: #333333 !important;
+}
+#grid > ul > li.EMPTY_SPACE > .popup > em {
+    border-left-color: #333333 !important;
+}
+#grid > ul > li.EMPTY_SPACE > .popup > span {
+    background-color: #333333 !important;
+}
+#grid > ul > li.EMPTY_SPACE > a:hover > span {
+    background-color: #444444 !important;
+}
+
+/* STAR_SYSTEM */
+#grid > ul > li.STAR_SYSTEM > a > span {
+    background-color: #448866 !important;
+}
+#grid > ul > li.STAR_SYSTEM > .popup > b {
+    border-right-color: #448866 !important;
+}
+#grid > ul > li.STAR_SYSTEM > .popup > em {
+    border-left-color: #448866 !important;
+}
+#grid > ul > li.STAR_SYSTEM > .popup > span {
+    background-color: #448866 !important;
+}
+#grid > ul > li.STAR_SYSTEM > a:hover > span {
+    background-color: #66aa88 !important;
+}
+
+
 
 
 /* selected */

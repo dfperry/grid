@@ -19,7 +19,12 @@
 <body>
 
 <div id="grid">
-<div id="overlay" class="hidden"></div>
+<div id="overlay" class="hidden">
+    <div id="popup" class="tile popup">
+        <b></b><span>
+        </span><em></em>
+    </div>
+</div>
 
 <c:set var="cellIndex" value="0" scope="page" />
 <c:forEach var="row" begin="1" end="${grid.rows}">
@@ -37,12 +42,31 @@
 
     <c:forEach var="cell" begin="1" end="${grid.columns}">
 
-        <li id="cell_${cellIndex}" class="${grid.tiles[cellIndex].tileType} ${grid.tiles[cellIndex].tileSafety}"><a><b></b><span></span><em></em></a>
-            <div id="info_${cellIndex}" class="tile popup hidden">
+        <li id="cell_${grid.tiles[cellIndex].index}" class="${grid.tiles[cellIndex].tileType} ${grid.tiles[cellIndex].tileSafety}"><a><b></b><span></span><em></em></a>
+            <form id="form_${grid.tiles[cellIndex].index}" action="">
+                <input name="safety_${grid.tiles[cellIndex].index}" id="safety_${grid.tiles[cellIndex].index}" type="hidden" value="${grid.tiles[cellIndex].tileSafety}"/>
+                <input name="type_${grid.tiles[cellIndex].index}" id="type_${grid.tiles[cellIndex].index}" type="hidden" value="${grid.tiles[cellIndex].tileType}"/>
+            </form>
+            <div id="info_${grid.tiles[cellIndex].index}" class="tile popup hidden ${grid.tiles[cellIndex].tileType}">
                 <b></b><span>
-                <div class="title">${grid.tiles[cellIndex].tileType.description}<a class="close" href="#">X</a></div>
+                <div class="title">${grid.tiles[cellIndex].tileType.description} - ${grid.tiles[cellIndex].tileSafety.description} <a class="close" href="#">X</a></div>
                 <div class="info">
-                    Some info about this tile
+                    <table class="datasheet">
+                        <tr>
+                            <td>Coordinates</td>
+                            <td>${cell}:${row}</td>
+                        </tr>
+                        <tr>
+                            <td>Sector</td>
+                            <td>${grid.tiles[cellIndex].index}</td>
+                        </tr>
+                        <tr>
+                            <td>Sector Type</td>
+                            <td>${grid.tiles[cellIndex].tileType.description}</td>
+                        </tr>
+
+                    </table>
+
                 </div>
                 </span><em></em>
             </div>

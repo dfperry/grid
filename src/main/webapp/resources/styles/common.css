@@ -11,3 +11,27 @@ body {
     font-family: Arial, "sans-serif";
     font-size: 0.9em;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+table.datasheet {
+    border: 2px solid #777777;
+    color: #cccccc;
+}
+
+table.datasheet td {
+    border: 1px solid #777777;
+    background-color: #555555;
+    padding: 2px 5px
+}
+
+table.datasheet {
+    text-align: left;
+}
+
+table.datasheet td:first-child {
+    text-align: right;
+    background-color: #444444;
+}
