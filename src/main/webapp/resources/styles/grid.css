@@ -164,6 +164,15 @@
     background-color: #446688;
 }
 
+#grid > ul > li > a > span > span {
+    display: block;
+    height: 30px;
+    width: 30px;
+    margin: 0px auto;
+    text-align: center;
+    border-radius: 15px;
+}
+
 #grid > ul > li > a > em {
     display: block;
     width: 0;
@@ -240,7 +249,7 @@
 }
 
 /* ASTEROID_FIELD*/
-#grid > ul > li.ASTEROID_FIELD > a > span {
+#grid > ul > li.ASTEROID_FIELD > a > span > span {
     background-color: #888866 !important;
 }
 #grid > ul > li.ASTEROID_FIELD > .popup > b {
@@ -252,12 +261,12 @@
 #grid > ul > li.ASTEROID_FIELD > .popup > span {
     background-color: #888866 !important;
 }
-#grid > ul > li.ASTEROID_FIELD > a:hover > span {
+#grid > ul > li.ASTEROID_FIELD > a:hover > span > span {
     background-color: #aaaa88 !important;
 }
 
 /* GRAVITY_WELL*/
-#grid > ul > li.GRAVITY_WELL> a > span {
+#grid > ul > li.GRAVITY_WELL> a > span > span {
     background-color: #224466 !important;
 }
 #grid > ul > li.GRAVITY_WELL> .popup > b {
@@ -269,12 +278,12 @@
 #grid > ul > li.GRAVITY_WELL> .popup > span {
     background-color: #224466 !important;
 }
-#grid > ul > li.GRAVITY_WELL> a:hover > span {
+#grid > ul > li.GRAVITY_WELL> a:hover > span > span {
     background-color: #446688 !important;
 }
 
 /* EMPTY_SPACE */
-#grid > ul > li.EMPTY_SPACE > a > span {
+#grid > ul > li.EMPTY_SPACE > a > span  > span {
     background-color: #333333 !important;
 }
 #grid > ul > li.EMPTY_SPACE > .popup > b {
@@ -286,12 +295,12 @@
 #grid > ul > li.EMPTY_SPACE > .popup > span {
     background-color: #333333 !important;
 }
-#grid > ul > li.EMPTY_SPACE > a:hover > span {
+#grid > ul > li.EMPTY_SPACE > a:hover > span > span {
     background-color: #444444 !important;
 }
 
 /* STAR_SYSTEM */
-#grid > ul > li.STAR_SYSTEM > a > span {
+#grid > ul > li.STAR_SYSTEM > a > span > span {
     background-color: #448866 !important;
 }
 #grid > ul > li.STAR_SYSTEM > .popup > b {
@@ -303,7 +312,7 @@
 #grid > ul > li.STAR_SYSTEM > .popup > span {
     background-color: #448866 !important;
 }
-#grid > ul > li.STAR_SYSTEM > a:hover > span {
+#grid > ul > li.STAR_SYSTEM > a:hover > span > span {
     background-color: #66aa88 !important;
 }
 

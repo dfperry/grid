@@ -42,7 +42,7 @@
 
     <c:forEach var="cell" begin="1" end="${grid.columns}">
 
-        <li id="cell_${grid.tiles[cellIndex].index}" class="${grid.tiles[cellIndex].tileType} ${grid.tiles[cellIndex].tileSafety}"><a><b></b><span></span><em></em></a>
+        <li id="cell_${grid.tiles[cellIndex].index}" class="${grid.tiles[cellIndex].tileType} ${grid.tiles[cellIndex].tileSafety}"><a><b></b><span><span></span></span><em></em></a>
             <form id="form_${grid.tiles[cellIndex].index}" action="">
                 <input name="safety_${grid.tiles[cellIndex].index}" id="safety_${grid.tiles[cellIndex].index}" type="hidden" value="${grid.tiles[cellIndex].tileSafety}"/>
                 <input name="type_${grid.tiles[cellIndex].index}" id="type_${grid.tiles[cellIndex].index}" type="hidden" value="${grid.tiles[cellIndex].tileType}"/>
