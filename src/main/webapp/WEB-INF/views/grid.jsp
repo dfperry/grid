@@ -67,6 +67,10 @@
 
                     </table>
 
+                    <a href="#" title="1" class="adjacent">1</a>
+                    <a href="#" title="2" class="adjacent">2</a>
+                    <a href="#" title="3" class="adjacent">3</a>
+
                 </div>
                 </span><em></em>
             </div>

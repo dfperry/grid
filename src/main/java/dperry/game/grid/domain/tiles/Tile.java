@@ -1,10 +1,16 @@
 package dperry.game.grid.domain.tiles;
 
+import dperry.game.grid.domain.Player;
+
+import java.util.List;
+
 public abstract class Tile {
     protected int index;
 
     protected TileSafety tileSafety;
     protected TileType tileType;
+
+    protected List<Player> known;
 
     public int getIndex() {
         return index;
@@ -20,5 +26,13 @@ public abstract class Tile {
 
     public TileType getTileType() {
         return tileType;
+    }
+
+    public void addPlayer( Player player ) {
+        known.add(player);
+    }
+
+    public void removePlayer( Player player ) {
+        known.remove(player);
     }
 }

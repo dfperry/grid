@@ -2,7 +2,9 @@ package dperry.game.grid;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 import dperry.game.grid.domain.Grid;
 import dperry.game.grid.domain.config.GameConfig;
@@ -10,10 +12,10 @@ import dperry.game.grid.domain.config.GameDifficulty;
 import dperry.game.grid.domain.config.GridSize;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -23,6 +25,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+
+    Grid normalGrid;
+    Grid easyGrid;
+    Grid hardGrid;
+
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -44,10 +51,12 @@ public class HomeController {
     @RequestMapping("/testeasygrid")
     public ModelAndView testViewEasyGrid(ModelAndView model) {
 
-        GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.EASY);
+        if( easyGrid == null ) {
+            GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.EASY);
+            easyGrid = new Grid(config);
+        }
 
-        Grid grid = new Grid(config);
-        model.addObject("grid", grid);
+        model.addObject("grid", easyGrid);
 
         model.setViewName("grid");
         return model;
@@ -56,10 +65,12 @@ public class HomeController {
     @RequestMapping("/testnormalgrid")
     public ModelAndView testViewNormalGrid(ModelAndView model) {
 
-        GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.NORMAL);
+        if( normalGrid == null ) {
+            GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.NORMAL);
+            normalGrid = new Grid(config);
+        }
 
-        Grid grid = new Grid(config);
-        model.addObject("grid", grid);
+        model.addObject("grid", normalGrid);
 
         model.setViewName("grid");
         return model;
@@ -68,13 +79,33 @@ public class HomeController {
     @RequestMapping("/testhardgrid")
     public ModelAndView testViewHardGrid(ModelAndView model) {
 
-        GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.HARD);
+        if( hardGrid == null ) {
+            GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.HARD);
+            hardGrid = new Grid(config);
+        }
 
-        Grid grid = new Grid(config);
-        model.addObject("grid", grid);
+        model.addObject("grid", hardGrid);
 
         model.setViewName("grid");
         return model;
+    }
+
+    @RequestMapping(value="/{grid}/{tile}/adjacent/{range}")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.OK)
+    public Set<Integer> getAdjacentTiles(@PathVariable("grid") String gridName, @PathVariable("tile") Integer tile, @PathVariable("range") Integer range ) {
+        if( gridName.equals("testhardgrid") ) {
+            return hardGrid.getAdjacentTiles(tile, range);
+        }
+        else if( gridName.equals("testnormalgrid") ) {
+            return normalGrid.getAdjacentTiles(tile, range);
+        }
+        else if( gridName.equals("testeasygrid") ) {
+            return easyGrid.getAdjacentTiles(tile, range);
+        }
+        else {
+            return null;
+        }
     }
 	
 }

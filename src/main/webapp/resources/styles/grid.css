@@ -143,6 +143,15 @@
     text-decoration: none;
 }
 
+#grid div.tile.popup a.adjacent {
+    color: #dddddd;
+    text-decoration: none;
+}
+
+#grid div.tile.popup a.adjacent:hover {
+    color: #ffffff;
+}
+
 #grid > ul.odd {
     padding-left: 27px;
 }
@@ -342,21 +351,21 @@
 
 /* source */
 #grid > ul > li.source> a > b {
-    border-bottom-color: #666644 !important;
+    border-bottom-color: #aa8800 !important;
 }
 #grid > ul > li.source> a > span {
-    background-color: #666644 !important;
+    background-color: #aa8800 !important;
 }
 #grid > ul > li.source> a > em {
-    border-top-color: #666644 !important;
+    border-top-color: #aa8800 !important;
 }
 /* dest */
 #grid > ul > li.dest> a > b {
-    border-bottom-color: #888866 !important;
+    border-bottom-color: #ccaa00 !important;
 }
 #grid > ul > li.dest> a > span {
-    background-color: #888866 !important;
+    background-color: #ccaa00 !important;
 }
 #grid > ul > li.dest> a > em {
-    border-top-color: #888866 !important;
+    border-top-color: #ccaa00 !important;
 }

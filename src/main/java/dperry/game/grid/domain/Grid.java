@@ -5,6 +5,9 @@ import dperry.game.grid.domain.tiles.Tile;
 import dperry.game.grid.domain.tiles.TileFactory;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Grid {
 
@@ -45,5 +48,59 @@ public class Grid {
 
     public ArrayList<Tile> getTiles() {
         return tiles;
+    }
+
+    public List<Tile> getAdjacentTiles( Tile tile, int range ) {
+
+        List<Tile> adjacentTiles = new ArrayList<Tile>();
+
+        if( range > 0 ) {
+            int id = tile.getIndex();
+
+            boolean isOdd = (id/columns)%2 == 1;
+            boolean isLeft = (id%columns == 0);
+            boolean isRight = (id%columns == (columns-1));
+            int modifier = (isOdd ? -1 : 0);
+
+            if( !isRight ) adjacentTiles.add(getTile(id+1));
+            if( !isLeft ) adjacentTiles.add(getTile(id-1));
+            if( !(isLeft && isOdd) ) adjacentTiles.add(getTile(id-columns+modifier));
+            if( !(isRight && !isOdd) ) adjacentTiles.add(getTile(id-columns+1+modifier));
+            if( !(isLeft && isOdd) ) adjacentTiles.add(getTile(id+columns+modifier));
+            if( !(isRight && !isOdd) ) adjacentTiles.add(getTile(id+columns+1+modifier));
+
+            for( Tile innerTile : adjacentTiles ) {
+                adjacentTiles.addAll(getAdjacentTiles(innerTile, range-1));
+            }
+        }
+
+        return adjacentTiles;
+    }
+
+    public Set<Integer> getAdjacentTiles( int index, int range ) {
+        Set<Integer> adjacentTiles = new TreeSet<Integer>();
+        Set<Integer> tiles = new TreeSet<Integer>();
+        if( range > 0 ) {
+            int id = index;
+
+            boolean isOdd = (id/columns)%2 == 1;
+            boolean isLeft = (id%columns == 0);
+            boolean isRight = (id%columns == (columns-1));
+            int modifier = (isOdd ? -1 : 0);
+
+            if( !isRight ) tiles.add(id+1);
+            if( !isLeft ) tiles.add(id-1);
+            if( !(isLeft && isOdd) ) tiles.add(id-columns+modifier);
+            if( !(isRight && !isOdd) ) tiles.add(id-columns+1+modifier);
+            if( !(isLeft && isOdd) ) tiles.add(id+columns+modifier);
+            if( !(isRight && !isOdd) ) tiles.add(id+columns+1+modifier);
+
+            for( Integer innerTile : tiles ) {
+                adjacentTiles.add(innerTile);
+                adjacentTiles.addAll(getAdjacentTiles(new Integer(innerTile), range-1));
+            }
+        }
+
+        return adjacentTiles;
     }
 }
