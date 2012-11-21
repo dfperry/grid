@@ -10,10 +10,12 @@
 	<!-- styles -->
 	<link rel="stylesheet" href="/grid/resources/styles/common.css"/>
 	<link rel="stylesheet" href="/grid/resources/styles/grid.css"/>
+	<link rel="stylesheet" href="/grid/resources/styles/jquery.alerts.css"/>
 
 	<!-- scripts -->
 	<script type="text/javascript" src="/grid/resources/scripts/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" src="/grid/resources/scripts/jquery-ui-1.9.1.custom.min.js"></script>
+	<script type="text/javascript" src="/grid/resources/scripts/jquery.alerts.js"></script>
 	<script type="text/javascript" src="/grid/resources/scripts/grid.js"></script>
 </head>
 <body>

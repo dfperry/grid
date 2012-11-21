@@ -4,10 +4,7 @@ import dperry.game.grid.domain.config.GameConfig;
 import dperry.game.grid.domain.tiles.Tile;
 import dperry.game.grid.domain.tiles.TileFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Grid {
 
@@ -17,7 +14,7 @@ public class Grid {
 
     TileFactory tileFactory;
 
-    public Grid(GameConfig config) {
+    public Grid(GameConfig config, List<Player> players) {
         this.rows = config.getGridSize().getRows();
         this.columns = config.getGridSize().getColumns();
 
@@ -27,6 +24,13 @@ public class Grid {
 
         for( int i = 0; i < rows*columns; i++) {
             tiles.add(tileFactory.getTile(i));
+        }
+
+        if( players != null && players.size() > 0 ) {
+            for( Player player : players ) {
+                int index = new Random().nextInt(tiles.size());
+                tiles.set(index, tileFactory.getHomeSystem(index, player));
+            }
         }
     }
 

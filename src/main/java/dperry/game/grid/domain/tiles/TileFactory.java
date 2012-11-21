@@ -1,5 +1,6 @@
 package dperry.game.grid.domain.tiles;
 
+import dperry.game.grid.domain.Player;
 import dperry.game.grid.domain.config.GameConfig;
 
 import java.util.Map;
@@ -12,6 +13,14 @@ public class TileFactory {
 
     public TileFactory(GameConfig gameConfig) {
         this.gameConfig = gameConfig;
+    }
+
+    public Tile getHomeSystem(int index, Player player) {
+        HomeSystem tile = new HomeSystem();
+        tile.setPlayer(player);
+        tile.setIndex(index);
+
+        return tile;
     }
 
     public Tile getTile(int index) {

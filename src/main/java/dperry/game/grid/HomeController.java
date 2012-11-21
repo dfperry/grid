@@ -1,12 +1,11 @@
 package dperry.game.grid;
 
 import java.text.DateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
+import java.util.*;
 
 import dperry.game.grid.domain.Grid;
+import dperry.game.grid.domain.Player;
+import dperry.game.grid.domain.User;
 import dperry.game.grid.domain.config.GameConfig;
 import dperry.game.grid.domain.config.GameDifficulty;
 import dperry.game.grid.domain.config.GridSize;
@@ -17,6 +16,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.annotation.PostConstruct;
 
 /**
  * Handles requests for the application home page.
@@ -29,6 +30,29 @@ public class HomeController {
     Grid normalGrid;
     Grid easyGrid;
     Grid hardGrid;
+
+    List<Player> players;
+
+    @PostConstruct
+    public void init() {
+
+        List<Player> players = new ArrayList<Player>();
+
+        Player player1 = new Player();
+        player1.setPlayerId(1);
+        player1.setUser(new User("player1"));
+
+        Player player2 = new Player();
+        player2.setPlayerId(2);
+        player2.setUser(new User("player2"));
+
+        players.add(player1);
+        players.add(player2);
+
+        easyGrid = new Grid(new GameConfig(GridSize.MEDIUM, GameDifficulty.EASY), players);
+        normalGrid = new Grid(new GameConfig(GridSize.MEDIUM, GameDifficulty.NORMAL), players);
+        hardGrid = new Grid(new GameConfig(GridSize.MEDIUM, GameDifficulty.HARD), players);
+    }
 
 	
 	/**
@@ -51,11 +75,6 @@ public class HomeController {
     @RequestMapping("/testeasygrid")
     public ModelAndView testViewEasyGrid(ModelAndView model) {
 
-        if( easyGrid == null ) {
-            GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.EASY);
-            easyGrid = new Grid(config);
-        }
-
         model.addObject("grid", easyGrid);
 
         model.setViewName("grid");
@@ -65,11 +84,6 @@ public class HomeController {
     @RequestMapping("/testnormalgrid")
     public ModelAndView testViewNormalGrid(ModelAndView model) {
 
-        if( normalGrid == null ) {
-            GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.NORMAL);
-            normalGrid = new Grid(config);
-        }
-
         model.addObject("grid", normalGrid);
 
         model.setViewName("grid");
@@ -78,11 +92,6 @@ public class HomeController {
 
     @RequestMapping("/testhardgrid")
     public ModelAndView testViewHardGrid(ModelAndView model) {
-
-        if( hardGrid == null ) {
-            GameConfig config = new GameConfig(GridSize.MEDIUM, GameDifficulty.HARD);
-            hardGrid = new Grid(config);
-        }
 
         model.addObject("grid", hardGrid);
 

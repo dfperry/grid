@@ -325,6 +325,23 @@
     background-color: #66aa88 !important;
 }
 
+/* HOME_SYSTEM */
+#grid > ul > li.HOME_SYSTEM > a > span > span {
+    background-color: #6688aa !important;
+}
+#grid > ul > li.HOME_SYSTEM > .popup > b {
+    border-right-color: #6688aa !important;
+}
+#grid > ul > li.HOME_SYSTEM > .popup > em {
+    border-left-color: #6688aa !important;
+}
+#grid > ul > li.HOME_SYSTEM > .popup > span {
+    background-color: #6688aa !important;
+}
+#grid > ul > li.HOME_SYSTEM > a:hover > span > span {
+    background-color: #88aacc !important;
+}
+
 
 
 

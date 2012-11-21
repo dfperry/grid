@@ -13,6 +13,6 @@ public class ActiveGame {
     protected GameConfig gameConfig;
 
     protected Grid buildGrid() {
-        return grid = new Grid(gameConfig);
+        return grid = new Grid(gameConfig, players);
     }
 }
