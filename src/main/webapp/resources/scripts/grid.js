@@ -30,7 +30,7 @@ $(function() {
         }
         else {
             if( !$(this).hasClass("dest") ) {
-                alert("Canceling");
+                jWarning("Cancelling", "Ship Deployment", function(){});
                 clearSourceDest();
             }
         }

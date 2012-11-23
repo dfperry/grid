@@ -10,4 +10,7 @@
     <context:annotation-config />
     <context:component-scan base-package="dperry.game.grid" />
 
+    <bean id="objectMapper" class="org.codehaus.jackson.map.ObjectMapper"/>
+    <bean id="gameService" class="dperry.game.grid.services.GameService" />
+
 </beans>
